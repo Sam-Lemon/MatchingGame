@@ -30,6 +30,23 @@ for (var i = 0; i < emojis.length; i++) {
   let box = document.createElement("div");
   box.className = "item";
   box.innerHTML = shuffle_emojis[i];
+
+//on click the newly created div in the variable box is given a new class of boxOpen.
+  box.onclick = function () {
+    this.classList.add("boxOpen");
+
+    setTimeout(function () {
+      if (document.querySelectorAll(".boxOpen").length > 1) {
+        if (
+          document.querySelectorAll(".boxOpen")[0].innerHTML ==
+          document.querySelectorAll(".boxOpen")[1].innerHTML
+        ) {
+          document.querySelectorAll(".boxOpen")[0].classList.add("boxMatch");
+        }
+      }
+    }, 500);
+  };
+
   document.querySelector(".game").appendChild(box);
 }
 
