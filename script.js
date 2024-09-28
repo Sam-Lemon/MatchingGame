@@ -31,20 +31,32 @@ for (var i = 0; i < emojis.length; i++) {
   box.className = "item";
   box.innerHTML = shuffle_emojis[i];
 
-//on click the newly created div in the variable box is given a new class of boxOpen.
+  //on click the newly created div in the variable box is given a new class of boxOpen.
   box.onclick = function () {
     this.classList.add("boxOpen");
 
     setTimeout(function () {
+      let click1 = document.querySelectorAll(".boxOpen")[0];
+      let click2 = document.querySelectorAll(".boxOpen")[1];
+
       if (document.querySelectorAll(".boxOpen").length > 1) {
-        if (
-          document.querySelectorAll(".boxOpen")[0].innerHTML ==
-          document.querySelectorAll(".boxOpen")[1].innerHTML
-        ) {
-          document.querySelectorAll(".boxOpen")[0].classList.add("boxMatch");
+        if (click1.innerHTML == click2.innerHTML) {
+          //adding the class of boxMatch and removing the existing boxOpen class
+          click1.classList.add("boxMatch");
+          click2.classList.add("boxMatch");
+          click1.classList.remove("boxOpen");
+          click2.classList.remove("boxOpen");
+
+          //if all of the boxes have the boxOpen class, the game will alert for a win
+          if (document.querySelectorAll(".boxMatch").length == emojis.length) {
+            alert("win");
+          }
+        } else {
+          click1.classList.remove("boxOpen");
+          click2.classList.remove("boxOpen");
         }
       }
-    }, 500);
+    }, 800);
   };
 
   document.querySelector(".game").appendChild(box);
