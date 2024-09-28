@@ -21,6 +21,7 @@ body {
     flex-direction: column;
     gap: 30px;
     background: #9a1af6;
+    padding: 40px 60px;
 }
 
 h2 {
@@ -48,8 +49,8 @@ h2 {
 }
 
 .game {
-    width: 440px;
-    height: 440px;
+    width: 430px;
+    height: 430px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -57,4 +58,14 @@ h2 {
     perspective: 500px;
 }
 
-
+.item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    background: #fff;
+    transition: 0.25s;
+}
