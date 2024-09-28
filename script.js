@@ -8,7 +8,6 @@ win when all cards are cleared
 
 
 
-
-function flipCard () {
+const images = [
     
-}
+];
